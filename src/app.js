@@ -13,4 +13,8 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(helmet());
 
+const route = require('./routes/routes');
+
+app.use('/', route);
+
 module.exports = app;
