@@ -4,8 +4,9 @@ var db = null;
 
 function connect(callback){
     if(connection) return callback(null, db);
+    console.log(process.env.MONGO_CONNECTION);
     
-    MongoClient.connect(process.env.MONGO_CONNECTION,{ useUnifiedTopology: true },(err, conn) => {
+    MongoClient.connect(process.env.MONGO_CONNECTION,{ useUnifiedTopology: true, useNewUrlParser: true },(err, conn) => {
         if(err) 
             return callback(err, null);
         else {
